@@ -1,6 +1,8 @@
 App::App.controllers :login do
   before :index do
-    puts 'before login_controller/index'
+    if ApplicationHelper.session_activa(session) == true then
+      redirect_to CONSTANTS[:BASE_URL]
+    end
   end
 
   get :index do
@@ -13,7 +15,7 @@ App::App.controllers :login do
         'bower_components/jquery/dist/jquery.min',
         'bower_components/bootstrap/dist/js/bootstrap.min',
       ],
-      :mensaje => true
+      :mensaje => false
     }
     render 'login/index', :layout => 'blank', :locals => locals
   end
@@ -46,15 +48,23 @@ App::App.controllers :login do
       }
       render 'login/index', :layout => 'blank', :locals => locals
     else
+      session[:estado] = 'activo'
+      session[:usuario] = params[:usuario]
+      session[:tiempo] = Time.now.strftime('%Y-%m-%d %H:%M:%S')
       redirect_to CONSTANTS[:BASE_URL]
     end
   end
 
   get :ver_usuario, :map => '/usuario/ver' do
-    'usuario/ver'
+    begin
+      'usuario : ' + session[:usuario] + '</br>' + 'estado : ' + session[:estado] + '</br>' + 'tiempo : ' + session[:tiempo]
+    rescue TypeError => e
+      'Alguno de las variables de session están nulas'
+    end
   end
 
   get :salir, :map => '/usuario/salir' do
-    'usuario/salir'
+    session.clear
+    redirect_to CONSTANTS[:BASE_URL] + 'login'
   end
 end

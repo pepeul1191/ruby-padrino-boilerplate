@@ -1,4 +1,10 @@
 App::App.controllers :home do
+  before :index do
+    if ApplicationHelper.session_activa(session) != true then
+      redirect_to CONSTANTS[:BASE_URL] + 'login'
+    end
+  end
+
   get :index, :map => '/' do
     locals = {
       :csss => [

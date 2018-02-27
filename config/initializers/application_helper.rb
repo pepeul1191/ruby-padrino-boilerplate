@@ -29,4 +29,8 @@ class ApplicationHelper
   def self.csrf_validate(request_token)
     CONSTANTS[:CSRF] == request_token
   end
+
+  def self.session_activa(session)
+    session[:estado] == 'activo'
+  end
 end
