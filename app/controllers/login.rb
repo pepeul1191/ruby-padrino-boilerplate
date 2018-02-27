@@ -1,24 +1,4 @@
 App::App.controllers :login do
-
-  # get :index, :map => '/foo/bar' do
-  #   session[:foo] = 'bar'
-  #   render 'index'
-  # end
-
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
-
   get :index do
     render 'login/index', :layout => 'blank'
   end
@@ -27,12 +7,11 @@ App::App.controllers :login do
 
   end
 
-  get :ver_usuario do
-
+  get :ver_usuario, :map => '/usuario/ver' do
+    'usuario/ver'
   end
 
-  get :salir do
-
+  get :salir, :map => '/usuario/salir' do
+    'usuario/salir'
   end
-
 end
