@@ -45,6 +45,8 @@ App::App.controllers :login do
         :mensaje => true,
       }
       render 'login/index', :layout => 'blank', :locals => locals
+    else
+      redirect_to CONSTANTS[:BASE_URL]
     end
   end
 
