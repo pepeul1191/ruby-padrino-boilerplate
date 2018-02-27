@@ -1,4 +1,8 @@
 App::App.controllers :login do
+  before :index do
+    puts 'before login_controller/index'
+  end
+
   get :index do
     locals = {
       :csss => [
@@ -6,7 +10,7 @@ App::App.controllers :login do
         'bower_components/font-awesome/css/font-awesome.min',
       ],
       :jss => [
-        'bower_components/jquery/dist/jquery.min', 
+        'bower_components/jquery/dist/jquery.min',
         'bower_components/bootstrap/dist/js/bootstrap.min',
       ],
     }
