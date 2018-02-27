@@ -20,8 +20,7 @@ App::App.controllers :login do
 
   before :acceder do
     if ApplicationHelper.csrf_validate(params[:csrf]) == false then
-      status 500
-      redirect_to CONSTANTS[:BASE_URL] + 'access/error/500'
+      redirect_to CONSTANTS[:BASE_URL] + 'access/error/505'
     end
   end
 
@@ -43,7 +42,7 @@ App::App.controllers :login do
           'bower_components/jquery/dist/jquery.min',
           'bower_components/bootstrap/dist/js/bootstrap.min',
         ],
-        :mensaje => true, 
+        :mensaje => true,
       }
       render 'login/index', :layout => 'blank', :locals => locals
     end
