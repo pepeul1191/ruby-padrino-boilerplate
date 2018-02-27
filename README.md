@@ -23,6 +23,15 @@ Arrancar servidor puma:
 
     $ puma
 
+Si deseamos crear un subproyecto dentro del principal, hacer lo siguiente:
+
+    $ cd my_project
+    $ padrino g app gallery
+
+Para crear los controladores usamos lo siguiente:
+
+    $ padrino g controller sample get:index --app gallery
+
 ### Fuentes:
 
 + http://padrinorb.com/guides/  
