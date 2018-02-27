@@ -3,7 +3,7 @@ module App
     register Padrino::Mailer
     register Padrino::Helpers
     enable :sessions
-    
+
     before do
      headers['Server'] = 'Ruby; Ubuntu;'
     end

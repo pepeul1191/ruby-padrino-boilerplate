@@ -1,4 +1,4 @@
-## Python3 Tornado
+## Ruby Padrino Boilerplate
 
 Requisitos de software previamente instalado:
 

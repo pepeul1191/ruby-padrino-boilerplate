@@ -1,5 +1,3 @@
-require_relative '../models/departamento'
-
 App::Ubicaciones.controllers :departamento do
   get :index do
     locals = {

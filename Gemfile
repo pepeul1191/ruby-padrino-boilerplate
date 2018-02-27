@@ -32,3 +32,4 @@ gem 'padrino', '0.14.3'
 # end
 gem 'sequel'
 gem 'sqlite3'
+gem 'httparty'

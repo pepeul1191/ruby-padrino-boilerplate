@@ -20,4 +20,13 @@ class ApplicationHelper
     end
     rpta.html_safe
   end
+
+  def self.input_csrf
+    rpta = '<input type="hidden" name="csrf" id="csrf_token" value="' + CONSTANTS[:CSRF] + '">'
+    rpta.html_safe
+  end
+
+  def self.csrf_validate(request_token)
+    CONSTANTS[:CSRF] == request_token
+  end
 end
