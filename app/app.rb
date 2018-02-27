@@ -56,9 +56,9 @@ module App
     ##
     # You can manage errors like:
     #
-    #   error 404 do
-    #     render 'errors/404'
-    #   end
+    error 404 do
+      redirect_to CONSTANTS[:BASE_URL] + 'access/error/404'
+    end
     #
     #   error 500 do
     #     render 'errors/500'
