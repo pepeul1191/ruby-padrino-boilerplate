@@ -1,6 +1,16 @@
 App::App.controllers :login do
   get :index do
-    render 'login/index', :layout => 'blank'
+    locals = {
+      :csss => [
+        'bower_components/bootstrap/dist/css/bootstrap.min',
+        'bower_components/font-awesome/css/font-awesome.min',
+      ],
+      :jss => [
+        'bower_components/jquery/dist/jquery.min', 
+        'bower_components/bootstrap/dist/js/bootstrap.min',
+      ],
+    }
+    render 'login/index', :layout => 'blank', :locals => locals
   end
 
   post :acceder do
